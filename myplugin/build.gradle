@@ -1,0 +1,24 @@
+apply plugin: 'groovy'
+
+repositories {
+    mavenCentral()
+    jcenter()
+}
+
+dependencies {
+    implementation gradleApi()
+    implementation localGroovy()
+    implementation 'com.android.tools.build:gradle:3.6.3'
+}
+
+apply plugin: 'maven'
+group = 'com.timmy.asmplugin'
+version = '1.0.0'
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            //生成的插件放在上层目录的asm_repo文件夹下
+            repository(url: uri('../asm_repo'))
+        }
+    }
+}

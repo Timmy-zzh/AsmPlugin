@@ -15,11 +15,19 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Log.i("eee", "dddd");
 
+        test();
+
         findViewById(R.id.text_view).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, SecondActivity.class));
             }
         });
+    }
+
+    private void test() {
+        if (BuildConfig.DEBUG) {
+            Log.e("Tim", "123456");
+        }
     }
 }

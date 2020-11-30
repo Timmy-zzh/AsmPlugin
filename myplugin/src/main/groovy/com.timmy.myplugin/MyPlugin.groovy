@@ -11,7 +11,7 @@ public class MyPlugin implements Plugin<Project>{
 
     @Override
     void apply(Project project) {
-        System.out.println("=========MyPlugin 111=========")
+        System.out.println("=========MyPlugin start=========")
         def android = project.extensions.getByType(AppExtension)
         LifeCycleTransform transform = new LifeCycleTransform()
         android.registerTransform(transform)

@@ -7,7 +7,6 @@ import org.objectweb.asm.ClassReader
 import org.objectweb.asm.ClassVisitor
 import org.objectweb.asm.ClassWriter
 import org.apache.commons.io.FileUtils
-import com.timmy.myplugin.LifecycleMethodVisitor
 
 public class LifeCycleTransform extends Transform {
 
@@ -103,6 +102,18 @@ public class LifeCycleTransform extends Transform {
                 FileUtils.copyDirectory(directoryInput.file, dest)
             }
         }
+
+//        transformInputs.each { TransformInput transformInput ->
+//
+//            transformInput.jarInputs.each { JarInput jarInput ->
+//                File dir = jarInput.file
+//                if (dir) {
+//                    dir.traverse(type: FileType.FILES, nameFilter: ~/.*\.class/) { File file ->
+//                        System.out.println(" -- jarInputs find class: " + file.name)
+//                    }
+//                }
+//            }
+//        }
     }
 
 }

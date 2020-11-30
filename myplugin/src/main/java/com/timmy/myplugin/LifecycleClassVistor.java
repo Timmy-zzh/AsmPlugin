@@ -35,5 +35,6 @@ public class LifecycleClassVistor extends ClassVisitor {
     @Override
     public void visitEnd() {
         super.visitEnd();
+        System.out.println("--LifecycleClassVistor--visitEnd--className:" + className + " ,superName:" + superName);
     }
 }

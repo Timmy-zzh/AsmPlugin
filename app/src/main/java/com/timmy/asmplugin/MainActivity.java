@@ -9,13 +9,12 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
+    private boolean tag = true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Log.i("eee", "dddd");
-
-        test();
 
         findViewById(R.id.text_view).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -25,9 +24,4 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void test() {
-        if (BuildConfig.DEBUG) {
-            Log.e("Tim", "123456");
-        }
-    }
 }

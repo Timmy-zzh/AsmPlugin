@@ -1,3 +1,4 @@
+include ':AsmStudy'
 rootProject.name='AsmPlugin'
 include ':app'
 include ':myplugin'

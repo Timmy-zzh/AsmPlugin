@@ -47,16 +47,19 @@ public class MyClass extends ClassLoader implements Opcodes {
         mv.visitVarInsn(ALOAD, 0);
         mv.visitMethodInsn(INVOKESPECIAL,
                 "java/lang/Object",
-                "<init>", "()V", false);
+                "<init>",
+                "()V",
+                false);
         mv.visitInsn(RETURN);
+        mv.visitMaxs(1, 1);
         mv.visitEnd();
 
         //TODO 2。构造main函数
         mv = cw.visitMethod(ACC_PUBLIC + ACC_STATIC,
                 "main",
                 "([Ljava/lang/String;)V",
-//                "(Ljava/lang/String;)V",
-                null, null);
+                null,
+                null);
 
         //TODO 3。main方法中生成 System.out.println("Hello ASM");
         //获取System类中的属性  System.out --    public static final PrintStream out;
@@ -74,25 +77,23 @@ public class MyClass extends ClassLoader implements Opcodes {
                 "(Ljava/lang/String;)V",
                 false);
         mv.visitInsn(RETURN);
-        mv.visitMaxs(2,2);
+        mv.visitMaxs(2, 2);
 
         //TODO 4.字节码生成完毕
         mv.visitEnd();
-
 
         //获取生成的class 文件对应的二进制流
         byte[] codes = cw.toByteArray();
 
         //将二进制流写入到本地磁盘上
-        FileOutputStream fos = new FileOutputStream("AsmDemo11");
+        FileOutputStream fos = new FileOutputStream("AsmDemo11.class");
         fos.write(codes);
         fos.close();
 
         //反射调用
         MyClass loader = new MyClass();
         Class<?> defineClass = loader.defineClass("AsmDemo11", codes, 0, codes.length);
-        defineClass.getMethods()[0].invoke(null,new Object[]{null});
-//        defineClass.getMethods()[0].invoke(null,new Object());
+        defineClass.getMethods()[0].invoke(null, new Object[]{null});
 
     }
 }

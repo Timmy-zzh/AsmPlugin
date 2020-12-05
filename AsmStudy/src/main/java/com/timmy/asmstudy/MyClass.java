@@ -78,8 +78,6 @@ public class MyClass extends ClassLoader implements Opcodes {
                 false);
         mv.visitInsn(RETURN);
         mv.visitMaxs(2, 2);
-
-        //TODO 4.字节码生成完毕
         mv.visitEnd();
 
         //获取生成的class 文件对应的二进制流
